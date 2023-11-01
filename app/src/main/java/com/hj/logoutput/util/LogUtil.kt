@@ -213,35 +213,33 @@ object LogUtil {
         }
 
 
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                // 获取当前日期
-                val currentDate = Date()
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
-                val todayDate = dateFormat.format(currentDate)
+        try {
+            // 获取当前日期
+            val currentDate = Date()
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
+            val todayDate = dateFormat.format(currentDate)
 
-                // 构建文件路径
-                val filePath = "$path/$todayDate.txt"
+            // 构建文件路径
+            val filePath = "$path/$todayDate.txt"
 
-                // 确保目录存在，如果不存在则创建
-                val directory = File(path)
-                if (!directory.exists()) {
-                    directory.mkdirs()
-                }
-
-                // 将消息写入文件
-                val writer = BufferedWriter(FileWriter(filePath, true))
-
-                val saveDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
-                val saveDate = saveDateFormat.format(currentDate)
-                val writeContent = "【$saveDate】" + msg
-
-                writer.write(writeContent)
-                writer.newLine() // 换行
-                writer.close()
-            } catch (e: IOException) {
-                e.printStackTrace()
+            // 确保目录存在，如果不存在则创建
+            val directory = File(path)
+            if (!directory.exists()) {
+                directory.mkdirs()
             }
+
+            // 将消息写入文件
+            val writer = BufferedWriter(FileWriter(filePath, true))
+
+            val saveDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
+            val saveDate = saveDateFormat.format(currentDate)
+            val writeContent = "【$saveDate】" + msg
+
+            writer.write(writeContent)
+            writer.newLine() // 换行
+            writer.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
     }
 }

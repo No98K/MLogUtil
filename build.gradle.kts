@@ -2,4 +2,23 @@
 plugins {
     id("com.android.application") version "8.1.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
+    id("maven-publish")
+    kotlin("jvm") version "1.5.21"
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            setUrl(uri("https://jitpack.io"))
+            credentials {
+                username = project.findProperty("jitpack.username") as String? ?: ""
+                password = project.findProperty("jitpack.token") as String? ?: ""
+            }
+        }
+    }
 }
