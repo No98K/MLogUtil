@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LogOutPut"
 include(":app")
- 
+include(":log")
