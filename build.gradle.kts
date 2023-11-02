@@ -24,7 +24,7 @@ publishing {
                 username = project.findProperty("jitpack.username") as String? ?: ""
                 password = project.findProperty("jitpack.token") as String? ?: ""
             }
-            url = (uri("https://github.com/No98K/MLogUtil"))
+//            url = (uri("https://github.com/No98K/MLogUtil"))
         }
     }
 }
