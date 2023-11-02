@@ -7,8 +7,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.hj.logoutput.databinding.ActivityMainBinding
-import com.hj.logoutput.util.LogUtil
 import android.Manifest
+import com.mlu.log.LogUtil
 
 class MainActivity : AppCompatActivity() {
     // 定义权限请求码
