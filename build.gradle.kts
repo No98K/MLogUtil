@@ -11,6 +11,10 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
+
+            groupId = "com.github.No98K"
+            artifactId = "MLogUtil"
+            version = "1.2.0"
         }
     }
     repositories {
@@ -20,6 +24,7 @@ publishing {
                 username = project.findProperty("jitpack.username") as String? ?: ""
                 password = project.findProperty("jitpack.token") as String? ?: ""
             }
+            url = (uri("https://github.com/No98K/MLogUtil"))
         }
     }
 }
